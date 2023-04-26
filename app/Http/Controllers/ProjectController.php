@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -14,13 +15,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $proj = Project::all();
+        $projects = Project::all();
 
-        $data = [
-            'proj' => $proj
-        ];
-
-        return view('projects.index', $data);
+        return view('projects.index', compact('projects'));
     }
 
     /**
@@ -30,7 +27,6 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
     }
 
     /**
@@ -41,15 +37,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'title' => 'required|max:255|min:3',
-            'content' => 'nullable|string',
-            'slug' => 'required|max:255|min:3',
-        ]);
+        // $data = $request->validate([
+        //     'title' => 'required|max:255|min:3',
+        //     'content' => 'nullable|string',
+        //     'slug' => 'required|max:255|min:3',
+        // ]);
 
-        $new_project =  Project::create($data);
+        // $new_project =  Project::create($data);
 
-        return to_route('projects.show', $new_project);
+        // return to_route('projects.show', $new_project);
     }
 
     /**
@@ -60,7 +56,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('projects.show', compact('project'));
+        // return view('projects.show', compact('project'));
     }
 
     /**
@@ -71,7 +67,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        // return view('projects.edit', compact('project'));
     }
 
     /**
@@ -83,15 +79,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $data = $request->validate([
-            'title' => 'required|max:255|min:3',
-            'content' => 'nullable|string',
-            'slug' => 'required|max:255|min:3',
-        ]);
+        // $data = $request->validate([
+        //     'title' => 'required|max:255|min:3',
+        //     'content' => 'nullable|string',
+        //     'slug' => 'required|max:255|min:3',
+        // ]);
 
-        $project->update($data);
+        // $project->update($data);
 
-        return to_route('projects.show', $project);
+        // return to_route('projects.show', $project);
     }
 
     /**
@@ -102,8 +98,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        $project->delete();
+        // $project->delete();
 
-        return to_route('projects.index');
+        // return to_route('projects.index');
     }
 }

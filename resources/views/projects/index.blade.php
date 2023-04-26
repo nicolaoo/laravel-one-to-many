@@ -9,7 +9,7 @@
 
 <div class="container">
     <div class="grid">
-        @forelse ($proj as $project)
+        @foreach($projects as $project)
         <div class="card">
             <h2>
                 {{ $project->title }}
@@ -17,9 +17,8 @@
             <p>
                 content
             </p>
-            @empty
         </div>
-        @endforelse
+        @endforeach
     </div>
 </div>
 
