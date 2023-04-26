@@ -16,29 +16,33 @@
 </div>
 
 <div class="container py-4">
-    <div class="grid-proj">
-        @foreach($projects as $project)
-        <div class="card-proj">
-            <h2>
-                {{ $project->title }}
-            </h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">title</th>
+                <th scope="col">contenuto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($projects as $project)
+            <tr>
+                <td>{{ $project->id}}</td>
+                <td>
+                    <h3>
+                        <a href="{{ route('projects.show', $project ) }}">
+                            {{ $project->title}}
+                        </a>
+                    </h3>
+                </td>
+                <td>{{ $project->content}}</td>
+            </tr>
+            @endforeach
 
-            <p>
-                {{$project->content ? $project->content : 'nessun contenuto'}}
-            </p>
-        </div>
-        @endforeach
-    </div>
+        </tbody>
+    </table>
 </div>
 
-
-<style>
-    .grid-proj {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 20px;
-    }
-</style>
 
 
 @endsection

@@ -2,9 +2,17 @@
 
 @section('content')
 
-<div class="container">
+<div class="container py-4">
+    <div class="row justify-content-between">
+        <div class="col-auto">
+            <h1>Crea nuovi Progetti</h1>
 
-    <h1>Crea un nuovo progetto</h1>
+        </div>
+        <div class="col-auto">
+            <a class="btn btn-danger" href="{{ route('projects.index') }}">home</a>
+        </div>
+
+    </div>
 </div>
 
 <div class="container">
@@ -13,7 +21,7 @@
 
         <div class="mb-3">
             <label for="title" class="form-label">Titolo</label>
-            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" id="title" aria-describedby="titleHelp">
+            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" id="title">
             {{-- errore title --}}
             @error('title')
             <div class="invalid-feedback">
@@ -24,8 +32,8 @@
 
         <div class="mb-3">
             <label for="content" class="form-label">Contenuto</label>
-            <textarea name="content" class="form-control @error('content') is-invalid @enderror" id="content">
-
+            <textarea cols="30" rows="10" name="content" class="form-control @error('content') is-invalid @enderror" id="content">
+            {{ old('content') }}
             </textarea>
             {{-- errore content --}}
             @error('content')
