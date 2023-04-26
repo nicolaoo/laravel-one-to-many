@@ -2,32 +2,35 @@
 
 @section('content')
 
-<div class="container">
+<div class="container py-4">
 
     <h1>I miei Progetti</h1>
 </div>
 
-<div class="container">
-    <div class="grid">
+<div class="container py-4">
+    <div class="grid-proj">
         @foreach($projects as $project)
-        <div class="card">
+        <div class="card-proj">
             <h2>
                 {{ $project->title }}
             </h2>
+
             <p>
-                content
+                {{$project->content ? $project->content : 'nessun contenuto'}}
             </p>
         </div>
         @endforeach
     </div>
 </div>
 
+
 <style>
-    .grid {
+    .grid-proj {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(6, 1fr);
         gap: 20px;
     }
 </style>
+
 
 @endsection
