@@ -3,8 +3,16 @@
 @section('content')
 
 <div class="container py-4">
+    <div class="row justify-content-between">
+        <div class="col-auto">
+            <h1>I miei Progetti</h1>
 
-    <h1>I miei Progetti</h1>
+        </div>
+        <div class="col-auto">
+            <a class="btn btn-danger" href="{{ route('projects.create') }}">Nuovo progetto</a>
+        </div>
+
+    </div>
 </div>
 
 <div class="container py-4">
