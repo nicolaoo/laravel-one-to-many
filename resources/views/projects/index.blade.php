@@ -21,6 +21,7 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">title</th>
+                <th scope="col">Tipologia</th>
                 <th scope="col">contenuto</th>
             </tr>
         </thead>
@@ -31,9 +32,14 @@
                 <td>
                     <h3>
                         <a href="{{ route('projects.show', $project ) }}">
-                            {{ $project->title}}
+                            {{ $project->type ? $project->type->name : '-'}}
                         </a>
                     </h3>
+                </td>
+                <td>
+                    <strong>
+                        {{ $project->type->name }}
+                    </strong>
                 </td>
                 <td>{{ $project->content ? $project->content : 'NESSUN CONTENUTO'}}</td>
                 <td><a class="btn btn-secondary" href="{{ route('projects.edit', $project) }}">Modifica</a></td>
