@@ -35,7 +35,8 @@
                         </a>
                     </h3>
                 </td>
-                <td>{{ $project->content}}</td>
+                <td>{{ $project->content ? $project->content : 'NESSUN CONTENUTO'}}</td>
+                <td><a class="btn btn-secondary" href="{{ route('projects.edit', $project) }}">Modifica</a></td>
             </tr>
             @endforeach
 

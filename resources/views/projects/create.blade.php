@@ -46,6 +46,5 @@
         <button type="submit" class="btn btn-primary">Crea</button>
     </form>
 </div>
-</div>
 
 @endsection
